@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+.button{
+    color:white;
+    background-color: #e84949;
+    box-shadow: 5px 5px 3px black;
+    width: 10em;
+    height: 1em;
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+}
+/* here we had to specify the before condition of the box before we hover on it , then by the use of pseudo class hover we can specify the after hovering effect on the block */
+.button::before{
+    content:'' ;
+    background-color:#1f1f1f;
+
+    /* now we want to overlapp this properyt with the existing button property ,so we had to use the absolute position property . */
+    position: absolute;
+    /* now we want to completly overlapp the given before property in the button div , so we had to allot the top ,left, botom, right  */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* now we have to hide the before propety and onl;y visible when the hover is done on the button */
+    transform:scaleX(0);
+    transform-origin: left;
+    z-index: -1;
+    /* bcoz hame hire me ko upar dikana tha */
+    transition:  all 1s;
+
+}
+/* now we had to make the hover property changes that will be visible when somebody hove's on the button */
+ .button:hover::before{ 
+     transform:scaleX(1); 
+     /* z-index: index 2;  */
+ } 
